@@ -282,9 +282,11 @@ end
 
 --- Toggle hold mode on the prompt.
 -- @param toggle true to enable hold mode, false to disable
+-- @param time hold time in ms
 -- @usage prompt:setHoldMode(true)
-function Uiprompt:setHoldMode(toggle)
-	PromptSetHoldMode(self.handle, toggle)
+function Uiprompt:setHoldMode(toggle, holdTime)
+	local holdTime = holdTime or 1500
+	PromptSetHoldMode(self.handle, toggle, holdTime)
 	return self
 end
 
@@ -391,11 +393,12 @@ end
 --- Add the prompt to a prompt group.
 -- @param group A @{UipromptGroup} object or integer ID of the group to add the prompt to.
 -- @usage prompt:setGroup(promptGroup)
-function Uiprompt:setGroup(group)
+function Uiprompt:setGroup(group, tabIndex)
+	local tabIndex = tabIndex or 0
 	if type(group) == "table" then
-		group:addPrompt(self)
+		group:addPrompt(self, tabIndex)
 	else
-		PromptSetGroup(self.handle, group)
+		PromptSetGroup(self.handle, group, tabIndex)
 		UipromptManager:addPrompt(self)
 	end
 
@@ -689,9 +692,9 @@ end
 
 --- Display the prompt group. This must be called every frame.
 -- @usage promptGroup:setActiveThisFrame()
-function UipromptGroup:setActiveThisFrame()
+function UipromptGroup:setActiveThisFrame(tabAmount, tabDefaultIndex)
 	local str = CreateVarString(10, "LITERAL_STRING", self.text)
-	PromptSetActiveGroupThisFrame(self.groupId, str)
+	PromptSetActiveGroupThisFrame(self.groupId, str, tabAmount or 1, tabDefaultIndex or 0)
 	return self
 end
 
@@ -721,13 +724,14 @@ end
 -- @param prompt A @{Uiprompt} object or integer ID of a prompt to add to the group.
 -- @return The prompt that was added to the group.
 -- @usage promptGroup:addPrompt(prompt)
-function UipromptGroup:addPrompt(prompt)
+function UipromptGroup:addPrompt(prompt, tabIndex )
+	local tabIndex = tabIndex or 0
 	if type(prompt) == "table" then
 		UipromptManager:removePrompt(prompt)
-		PromptSetGroup(prompt:getHandle(), self.groupId)
+		PromptSetGroup(prompt:getHandle(), self.groupId, tabIndex)
 		table.insert(self.prompts, prompt)
 	else
-		PromptSetGroup(prompt, self.groupId)
+		PromptSetGroup(prompt, self.groupId, tabIndex)
 	end
 
 	return prompt
