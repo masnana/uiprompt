@@ -192,6 +192,10 @@
 	<td class="summary">Check if any of the controls associated with the prompt are pressed.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Uiprompt:isDisabledControlPressed">Uiprompt:isDisabledControlPressed (padIndex)</a></td>
+	<td class="summary">Check if any of the controls associated with the prompt are pressed.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Uiprompt:isControlReleased">Uiprompt:isControlReleased (padIndex)</a></td>
 	<td class="summary">Check if any of the controls associated with the prompt are released.</td>
 	</tr>
@@ -201,6 +205,14 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Uiprompt:isControlJustReleased">Uiprompt:isControlJustReleased (padIndex)</a></td>
+	<td class="summary">Check if any of the controls associated with the prompt were just released.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Uiprompt:isDisabledControlJustPressed">Uiprompt:isDisabledControlJustPressed (padIndex)</a></td>
+	<td class="summary">Check if any of the controls associated with the prompt were just pressed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Uiprompt:isDisabledControlJustReleased">Uiprompt:isDisabledControlJustReleased (padIndex)</a></td>
 	<td class="summary">Check if any of the controls associated with the prompt were just released.</td>
 	</tr>
 	<tr>
@@ -232,6 +244,10 @@
 	<td class="summary">Set a handler that is executed when any control associated with the prompt is pressed.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#Uiprompt:setOnDisabledControlPressed">Uiprompt:setOnDisabledControlPressed (handler)</a></td>
+	<td class="summary">Set a handler that is executed when any control associated with the prompt is pressed.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Uiprompt:setOnControlReleased">Uiprompt:setOnControlReleased (handler)</a></td>
 	<td class="summary">Set a handler that is executed when any control associated with the prompt is released.</td>
 	</tr>
@@ -242,6 +258,14 @@
 	<tr>
 	<td class="name" nowrap><a href="#Uiprompt:setOnControlJustReleased">Uiprompt:setOnControlJustReleased (handler)</a></td>
 	<td class="summary">Set a handler that is executed when any control associated with the prompt was just released.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Uiprompt:setOnDisabledControlJustPressed">Uiprompt:setOnDisabledControlJustPressed (handler)</a></td>
+	<td class="summary">Set a handler that is executed when any disabled control associated with the prompt was just pressed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Uiprompt:setOnDisabledControlJustReleased">Uiprompt:setOnDisabledControlJustReleased (handler)</a></td>
+	<td class="summary">Set a handler that is executed when any disabled control associated with the prompt was just released.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Uiprompt:setOnStandardModeCompleted">Uiprompt:setOnStandardModeCompleted (handler)</a></td>
@@ -331,6 +355,10 @@
 	<td class="summary">Check if any of the controls of any of the prompts in the group are pressed</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#UipromptGroup:isDisabledControlPressed">UipromptGroup:isDisabledControlPressed (padIndex, callback)</a></td>
+	<td class="summary">Check if any of the controls of any of the prompts in the group are pressed</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#UipromptGroup:isControlReleased">UipromptGroup:isControlReleased (padIndex, callback)</a></td>
 	<td class="summary">Check if any of the controls of any of the prompts in the group are released</td>
 	</tr>
@@ -340,6 +368,14 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#UipromptGroup:isControlJustReleased">UipromptGroup:isControlJustReleased (padIndex, callback)</a></td>
+	<td class="summary">Check if any of the controls of any of the prompts in the group were just released</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UipromptGroup:isDisabledControlJustPressed">UipromptGroup:isDisabledControlJustPressed (padIndex, callback)</a></td>
+	<td class="summary">Check if any of the controls of any of the prompts in the group were just pressed</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UipromptGroup:isDisabledControlJustReleased">UipromptGroup:isDisabledControlJustReleased (padIndex, callback)</a></td>
 	<td class="summary">Check if any of the controls of any of the prompts in the group were just released</td>
 	</tr>
 	<tr>
@@ -431,8 +467,20 @@
 	<td class="summary">Set a handler that is executed when any control of any prompt in the group was just released.</td>
 	</tr>
 	<tr>
+	<td class="name" nowrap><a href="#UipromptGroup:setOnDisabledControlJustPressed">UipromptGroup:setOnDisabledControlJustPressed (handler)</a></td>
+	<td class="summary">Set a handler that is executed when any disabled control associated with the prompt was just pressed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UipromptGroup:setOnDisabledControlJustReleased">UipromptGroup:setOnDisabledControlJustReleased (handler)</a></td>
+	<td class="summary">Set a handler that is executed when any disabled control associated with the prompt was just released.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#UipromptGroup:setOnControlPressed">UipromptGroup:setOnControlPressed (handler)</a></td>
 	<td class="summary">Set a handler that is executed when any control of any prompt in the group is pressed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#UipromptGroup:setOnDisabledControlPressed">UipromptGroup:setOnDisabledControlPressed (handler)</a></td>
+	<td class="summary">Set a handler that is executed when any control associated with the prompt is pressed.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Uiprompt:setOnControlReleased">Uiprompt:setOnControlReleased (handler)</a></td>
@@ -1204,6 +1252,35 @@
 
 </dd>
     <dt>
+    <a name = "Uiprompt:isDisabledControlPressed"></a>
+    <strong>Uiprompt:isDisabledControlPressed (padIndex)</strong>
+    </dt>
+    <dd>
+    Check if any of the controls associated with the prompt are pressed.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">padIndex</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true or false
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">if</span> prompt:isDisabledControlPressed(<span class="number">0</span>) <span class="keyword">then</span> ... <span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "Uiprompt:isControlReleased"></a>
     <strong>Uiprompt:isControlReleased (padIndex)</strong>
     </dt>
@@ -1287,6 +1364,64 @@
     <h3>Usage:</h3>
     <ul>
         <pre class="example"><span class="keyword">if</span> prompt:isControlJustReleased(<span class="number">0</span>) <span class="keyword">then</span> ... <span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Uiprompt:isDisabledControlJustPressed"></a>
+    <strong>Uiprompt:isDisabledControlJustPressed (padIndex)</strong>
+    </dt>
+    <dd>
+    Check if any of the controls associated with the prompt were just pressed.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">padIndex</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true or false
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">if</span> prompt:isDisabledControlJustPressed(<span class="number">0</span>) <span class="keyword">then</span> ... <span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Uiprompt:isDisabledControlJustReleased"></a>
+    <strong>Uiprompt:isDisabledControlJustReleased (padIndex)</strong>
+    </dt>
+    <dd>
+    Check if any of the controls associated with the prompt were just released.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">padIndex</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true or false
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">if</span> prompt:isDisabledControlJustReleased(<span class="number">0</span>) <span class="keyword">then</span> ... <span class="keyword">end</span></pre>
     </ul>
 
 </dd>
@@ -1459,6 +1594,30 @@
 
 </dd>
     <dt>
+    <a name = "Uiprompt:setOnDisabledControlPressed"></a>
+    <strong>Uiprompt:setOnDisabledControlPressed (handler)</strong>
+    </dt>
+    <dd>
+    Set a handler that is executed when any control associated with the prompt is pressed.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">handler</span>
+         Handler function
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">prompt:setOnDisabledControlPressed(<span class="keyword">function</span>(prompt, ...) ... <span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "Uiprompt:setOnControlReleased"></a>
     <strong>Uiprompt:setOnControlReleased (handler)</strong>
     </dt>
@@ -1527,6 +1686,54 @@
     <h3>Usage:</h3>
     <ul>
         <pre class="example">prompt:setOnControlJustReleased(<span class="keyword">function</span>(prompt, ...) ... <span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Uiprompt:setOnDisabledControlJustPressed"></a>
+    <strong>Uiprompt:setOnDisabledControlJustPressed (handler)</strong>
+    </dt>
+    <dd>
+    Set a handler that is executed when any disabled control associated with the prompt was just pressed.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">handler</span>
+         Handler function
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">prompt:setOnDisabledControlJustPressed(<span class="keyword">function</span>(prompt, ...) ... <span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Uiprompt:setOnDisabledControlJustReleased"></a>
+    <strong>Uiprompt:setOnDisabledControlJustReleased (handler)</strong>
+    </dt>
+    <dd>
+    Set a handler that is executed when any disabled control associated with the prompt was just released.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">handler</span>
+         Handler function
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">prompt:setOnDisabledControlJustReleased(<span class="keyword">function</span>(prompt, ...) ... <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
@@ -2082,6 +2289,39 @@
 
 </dd>
     <dt>
+    <a name = "UipromptGroup:isDisabledControlPressed"></a>
+    <strong>UipromptGroup:isDisabledControlPressed (padIndex, callback)</strong>
+    </dt>
+    <dd>
+    Check if any of the controls of any of the prompts in the group are pressed
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">padIndex</span>
+
+        </li>
+        <li><span class="parameter">callback</span>
+         An optional callback function that is executed for each prompt that has a control pressed.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true or false
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <li><pre class="example"><span class="keyword">if</span> promptGroup:isDisabledControlPressed(<span class="number">0</span>) <span class="keyword">then</span> ... <span class="keyword">end</span></pre></li>
+        <li><pre class="example">promptGroup:isDisabledControlPressed(<span class="number">0</span>, <span class="keyword">function</span>(prompt) ... <span class="keyword">end</span>)</pre></li>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "UipromptGroup:isControlReleased"></a>
     <strong>UipromptGroup:isControlReleased (padIndex, callback)</strong>
     </dt>
@@ -2177,6 +2417,72 @@
     <ul>
         <li><pre class="example"><span class="keyword">if</span> promptGroup:isControlJustReleased(<span class="number">0</span>) <span class="keyword">then</span> ... <span class="keyword">end</span></pre></li>
         <li><pre class="example">promptGroup:isControlJustReleased(<span class="number">0</span>, <span class="keyword">function</span>(prompt) ... <span class="keyword">end</span>)</pre></li>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "UipromptGroup:isDisabledControlJustPressed"></a>
+    <strong>UipromptGroup:isDisabledControlJustPressed (padIndex, callback)</strong>
+    </dt>
+    <dd>
+    Check if any of the controls of any of the prompts in the group were just pressed
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">padIndex</span>
+
+        </li>
+        <li><span class="parameter">callback</span>
+         An optional callback that is executed for each prompt that has a control that was just pressed.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true or false
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <li><pre class="example"><span class="keyword">if</span> promptGroup:isDisabledControlJustPressed(<span class="number">0</span>) <span class="keyword">then</span> ... <span class="keyword">end</span></pre></li>
+        <li><pre class="example"><span class="keyword">if</span> promptGroup:isDisabledControlJustPressed(<span class="number">0</span>, <span class="keyword">function</span>(prompt) ... <span class="keyword">end</span>)</pre></li>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "UipromptGroup:isDisabledControlJustReleased"></a>
+    <strong>UipromptGroup:isDisabledControlJustReleased (padIndex, callback)</strong>
+    </dt>
+    <dd>
+    Check if any of the controls of any of the prompts in the group were just released
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">padIndex</span>
+
+        </li>
+        <li><span class="parameter">callback</span>
+         An optional callback that is executed for each prompt that has a control that was just released.
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true or false
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <li><pre class="example"><span class="keyword">if</span> promptGroup:isDisabledControlJustReleased(<span class="number">0</span>) <span class="keyword">then</span> ... <span class="keyword">end</span></pre></li>
+        <li><pre class="example">promptGroup:isDisabledControlJustReleased(<span class="number">0</span>, <span class="keyword">function</span>(prompt) ... <span class="keyword">end</span>)</pre></li>
     </ul>
 
 </dd>
@@ -2741,6 +3047,54 @@
 
 </dd>
     <dt>
+    <a name = "UipromptGroup:setOnDisabledControlJustPressed"></a>
+    <strong>UipromptGroup:setOnDisabledControlJustPressed (handler)</strong>
+    </dt>
+    <dd>
+    Set a handler that is executed when any disabled control associated with the prompt was just pressed.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">handler</span>
+         Handler function
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">promptGroup:setOnDisabledControlJustPressed(<span class="keyword">function</span>(prompt, ...) ... <span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "UipromptGroup:setOnDisabledControlJustReleased"></a>
+    <strong>UipromptGroup:setOnDisabledControlJustReleased (handler)</strong>
+    </dt>
+    <dd>
+    Set a handler that is executed when any disabled control associated with the prompt was just released.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">handler</span>
+         Handler function
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">promptGroup:setOnDisabledControlJustReleased(<span class="keyword">function</span>(prompt, ...) ... <span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
     <a name = "UipromptGroup:setOnControlPressed"></a>
     <strong>UipromptGroup:setOnControlPressed (handler)</strong>
     </dt>
@@ -2761,6 +3115,30 @@
     <h3>Usage:</h3>
     <ul>
         <pre class="example">promptGroup:setOnControlPressed(<span class="keyword">function</span>(group, prompt, ...) ... <span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "UipromptGroup:setOnDisabledControlPressed"></a>
+    <strong>UipromptGroup:setOnDisabledControlPressed (handler)</strong>
+    </dt>
+    <dd>
+    Set a handler that is executed when any control associated with the prompt is pressed.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">handler</span>
+         Handler function
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">promptGroup:setOnDisabledControlPressed(<span class="keyword">function</span>(prompt, ...) ... <span class="keyword">end</span>)</pre>
     </ul>
 
 </dd>
@@ -2913,7 +3291,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2024-02-28 11:36:50 </i>
+<i style="float:right;">Last updated 2024-09-15 12:20:17 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
