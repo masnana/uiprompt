@@ -409,6 +409,8 @@ end
 function Uiprompt:doForEachControl(func, padIndex)
 	for _, control in ipairs(self.controls) do
 		if func(padIndex, control) then
+			self.pressed = control
+			-- print(padIndex, control)
 			return true
 		end
 	end
@@ -422,6 +424,14 @@ end
 -- @usage if prompt:isControlPressed(0) then ... end
 function Uiprompt:isControlPressed(padIndex)
 	return self:doForEachControl(IsControlPressed, padIndex)
+end
+
+--- Check if any of the controls associated with the prompt are pressed.
+-- @param padIndex
+-- @return true or false
+-- @usage if prompt:isDisabledControlPressed(0) then ... end
+function Uiprompt:isDisabledControlPressed(padIndex)
+	return self:doForEachControl(IsDisabledControlPressed, padIndex)
 end
 
 --- Check if any of the controls associated with the prompt are released.
@@ -446,6 +456,22 @@ end
 -- @usage if prompt:isControlJustReleased(0) then ... end
 function Uiprompt:isControlJustReleased(padIndex)
 	return self:doForEachControl(IsControlJustReleased, padIndex)
+end
+
+--- Check if any of the controls associated with the prompt were just pressed.
+-- @param padIndex
+-- @return true or false
+-- @usage if prompt:isDisabledControlJustPressed(0) then ... end
+function Uiprompt:isDisabledControlJustPressed(padIndex)
+	return self:doForEachControl(IsDisabledControlJustPressed, padIndex)
+end
+
+--- Check if any of the controls associated with the prompt were just released.
+-- @param padIndex
+-- @return true or false
+-- @usage if prompt:isDisabledControlJustReleased(0) then ... end
+function Uiprompt:isDisabledControlJustReleased(padIndex)
+	return self:doForEachControl(IsDisabledControlJustReleased, padIndex)
 end
 
 --- Enable all control actions associated with the prompt.
@@ -507,6 +533,14 @@ function Uiprompt:setOnControlPressed(handler)
 	return self
 end
 
+--- Set a handler that is executed when any control associated with the prompt is pressed.
+-- @param handler Handler function
+-- @usage prompt:setOnDisabledControlPressed(function(prompt, ...) ... end)
+function Uiprompt:setOnDisabledControlPressed(handler)
+	self.onDisabledControlPressed = handler
+	return self
+end
+
 --- Set a handler that is executed when any control associated with the prompt is released.
 -- @param handler Handler function
 -- @usage prompt:setOnControlReleased(function(prompt, ...) ... end)
@@ -528,6 +562,22 @@ end
 -- @usage prompt:setOnControlJustReleased(function(prompt, ...) ... end)
 function Uiprompt:setOnControlJustReleased(handler)
 	self.onControlJustReleased = handler
+	return self
+end
+
+--- Set a handler that is executed when any disabled control associated with the prompt was just pressed.
+-- @param handler Handler function
+-- @usage prompt:setOnDisabledControlJustPressed(function(prompt, ...) ... end)
+function Uiprompt:setOnDisabledControlJustPressed(handler)
+	self.onDisabledControlJustPressed = handler
+	return self
+end
+
+--- Set a handler that is executed when any disabled control associated with the prompt was just released.
+-- @param handler Handler function
+-- @usage prompt:setOnDisabledControlJustReleased(function(prompt, ...) ... end)
+function Uiprompt:setOnDisabledControlJustReleased(handler)
+	self.onDisabledControlJustReleased = handler
 	return self
 end
 
@@ -640,6 +690,10 @@ function Uiprompt:handleEvents(...)
 			self:onControlPressed(...)
 		end
 
+		if self.onDisabledControlPressed and self:isDisabledControlPressed(0) then
+			self:onDisabledControlPressed(...)
+		end
+
 		if self.onControlReleased and self:isControlReleased(0) then
 			self:onControlReleased(...)
 		end
@@ -650,6 +704,14 @@ function Uiprompt:handleEvents(...)
 
 		if self.onControlJustReleased and self:isControlJustReleased(0) then
 			self:onControlJustReleased(...)
+		end
+
+		if self.onDisabledControlJustPressed and self:isDisabledControlJustPressed(0) then
+			self:onDisabledControlJustPressed(...)
+		end
+
+		if self.onDisabledControlJustReleased and self:isDisabledControlJustReleased(0) then
+			self:onDisabledControlJustReleased(...)
 		end
 	end
 end
@@ -802,6 +864,16 @@ function UipromptGroup:isControlPressed(padIndex, callback)
 	return self:doForEachPrompt("doForEachControl", callback, IsControlPressed, padIndex)
 end
 
+--- Check if any of the controls of any of the prompts in the group are pressed
+-- @param padIndex
+-- @param callback An optional callback function that is executed for each prompt that has a control pressed.
+-- @return true or false
+-- @usage if promptGroup:isDisabledControlPressed(0) then ... end
+-- @usage promptGroup:isDisabledControlPressed(0, function(prompt) ... end)
+function UipromptGroup:isDisabledControlPressed(padIndex, callback)
+	return self:doForEachPrompt("doForEachControl", callback, IsDisabledControlPressed, padIndex)
+end
+
 --- Check if any of the controls of any of the prompts in the group are released
 -- @param padIndex
 -- @param callback An optional callback function that is executed for each prompt that has a control released.
@@ -830,6 +902,26 @@ end
 -- @usage promptGroup:isControlJustReleased(0, function(prompt) ... end)
 function UipromptGroup:isControlJustReleased(padIndex, callback)
 	return self:doForEachPrompt("doForEachControl", callback, IsControlJustReleased, padIndex)
+end
+
+--- Check if any of the controls of any of the prompts in the group were just pressed
+-- @param padIndex
+-- @param callback An optional callback that is executed for each prompt that has a control that was just pressed.
+-- @return true or false
+-- @usage if promptGroup:isDisabledControlJustPressed(0) then ... end
+-- @usage if promptGroup:isDisabledControlJustPressed(0, function(prompt) ... end)
+function UipromptGroup:isDisabledControlJustPressed(padIndex, callback)
+	return self:doForEachPrompt("doForEachControl", callback, IsDisabledControlJustPressed, padIndex)
+end
+
+--- Check if any of the controls of any of the prompts in the group were just released
+-- @param padIndex
+-- @param callback An optional callback that is executed for each prompt that has a control that was just released.
+-- @return true or false
+-- @usage if promptGroup:isDisabledControlJustReleased(0) then ... end
+-- @usage promptGroup:isDisabledControlJustReleased(0, function(prompt) ... end)
+function UipromptGroup:isDisabledControlJustReleased(padIndex, callback)
+	return self:doForEachPrompt("doForEachControl", callback, IsDisabledControlJustReleased, padIndex)
 end
 
 --- Enable all control actions of all prompts in the group.
@@ -1017,11 +1109,35 @@ function UipromptGroup:setOnControlJustReleased(handler)
 	return self
 end
 
+--- Set a handler that is executed when any disabled control associated with the prompt was just pressed.
+-- @param handler Handler function
+-- @usage promptGroup:setOnDisabledControlJustPressed(function(prompt, ...) ... end)
+function UipromptGroup:setOnDisabledControlJustPressed(handler)
+	self.onDisabledControlJustPressed = handler
+	return self
+end
+
+--- Set a handler that is executed when any disabled control associated with the prompt was just released.
+-- @param handler Handler function
+-- @usage promptGroup:setOnDisabledControlJustReleased(function(prompt, ...) ... end)
+function UipromptGroup:setOnDisabledControlJustReleased(handler)
+	self.onDisabledControlJustReleased = handler
+	return self
+end
+
 --- Set a handler that is executed when any control of any prompt in the group is pressed.
 -- @param handler Handler function
 -- @usage promptGroup:setOnControlPressed(function(group, prompt, ...) ... end)
 function UipromptGroup:setOnControlPressed(handler)
 	self.onControlPressed = handler
+	return self
+end
+
+--- Set a handler that is executed when any control associated with the prompt is pressed.
+-- @param handler Handler function
+-- @usage promptGroup:setOnDisabledControlPressed(function(prompt, ...) ... end)
+function UipromptGroup:setOnDisabledControlPressed(handler)
+	self.onDisabledControlPressed = handler
 	return self
 end
 
@@ -1112,6 +1228,17 @@ function UipromptGroup:handleEvents(...)
 				self:onControlJustReleased(prompt, ...)
 			end
 
+			if self.onDisabledControlJustPressed and prompt:IsDisabledControlJustPressed(0) then
+				self:onDisabledControlJustPressed(prompt, ...)
+			end
+
+			if self.onDisabledControlJustReleased and prompt:IsDisabledControlJustReleased(0) then
+				self:onDisabledControlJustReleased(prompt, ...)
+			end
+
+			if self.onDisabledControlPressed and prompt:IsDisabledControlPressed(0) then
+				self:onDisabledControlPressed(prompt, ...)
+			end
 			if self.onControlPressed and prompt:isControlPressed(0) then
 				self:onControlPressed(prompt, ...)
 			end
